@@ -1,0 +1,20 @@
+{
+	"extends": ["plugin:adonis/typescriptApp", "plugin:vue/vue3-recommended", "prettier"],
+	"plugins": ["prettier", "plugin:vue/vue3-recommended"],
+	"rules": {
+		"prettier/prettier": [
+			"error",
+			{
+				"trailingComma": "es5",
+				"semi": true,
+				"singleQuote": false,
+				"useTabs": true,
+				"quoteProps": "consistent",
+				"bracketSpacing": true,
+				"arrowParens": "always",
+				"printWidth": 120,
+				"curly": "multi-line"
+			}
+		]
+	}
+}
