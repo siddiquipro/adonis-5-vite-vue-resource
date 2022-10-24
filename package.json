@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "node ace serve --watch --no-assets",
 		"debug": "node ace serve --watch --node-args=--inspect --no-assets",
-		"build": "node ace build --production --no-assets",
+		"build": "npm run vite:build && node ace build --production --no-assets",
 		"start": "node server.js",
 		"lint": "eslint . --ext=.ts",
 		"format": "prettier --write .",
