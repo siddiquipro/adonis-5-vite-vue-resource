@@ -28,6 +28,10 @@
 			"reloadServer": false
 		},
 		{
+			"pattern": "resources/views/**/*.edge",
+			"reloadServer": false
+		},
+		{
 			"pattern": "www/**",
 			"reloadServer": false
 		}
