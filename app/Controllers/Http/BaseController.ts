@@ -1,18 +1,20 @@
 import type { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
 import ResourceController from "./ResourceController";
 import Application from "@ioc:Adonis/Core/Application";
+import Drive from "@ioc:Adonis/Core/Drive";
 
 export default class BaseController extends ResourceController {
 	public async www({ view }: HttpContextContract) {
 		let manifest = null;
-		if (Application.nodeEnvironment === "development") {
-			try {
-				const manPath = Application.publicPath("manifest.json");
-				manifest = require(manPath);
-			} catch (error) {
-				console.log("Issues with manifest file", error);
-			}
+
+		try {
+			const manPath = Application.publicPath("manifest.json");
+			const manifestExists = await Drive.exists(manPath);
+			if (manifestExists) manifest = require(manPath);
+		} catch (error) {
+			console.log("Issues with manifest file", error);
 		}
+
 		return view.render("welcome", { manifest });
 	}
 
